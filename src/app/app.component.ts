@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ms';
+  options = ['India', 'Nepal', 'Bondhar'];
+  changeSelection(options){
+    console.log(options);
+  }
 }

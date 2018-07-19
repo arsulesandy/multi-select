@@ -1,0 +1,36 @@
+<mat-form-field class="matSelect">
+  <mat-select [placeholder]="placeHolder" [formControl]="multiSelect" multiple>
+    <mat-select-trigger>
+      <div class="trigger">
+        <mat-chip-list class="matChipList">
+          <mat-chip selected="true"  color="primary" [selectable]="true"
+          [removable]="true" (removed)="remove(0)">{{multiSelect.value ? multiSelect.value[0] : ''}}
+          <mat-icon matChipRemove >cancel</mat-icon></mat-chip>
+        </mat-chip-list>
+        
+        <span *ngIf="multiSelect.value?.length > 1" class="countChip">
+            <mat-chip
+            mdePopoverTriggerOn="click">+{{multiSelect.value.length - 1}}</mat-chip>
+        </span>
+      </div>
+    </mat-select-trigger>
+    <mat-form-field class="matSearch">
+          <input #matSearch matInput placeholder="Search">
+    </mat-form-field>
+        
+    <mat-option *ngFor="let option of options | filter:matSearch.value" (click)="emitValue()" [value]="option">{{option}}</mat-option>
+  </mat-select>
+
+  
+  <mde-popover #appPopover="mdePopover" [mdePopoverOverlapTrigger]="false">
+    <mat-card style="max-width: 300px">
+      <mat-card-content>
+        <mat-chip-list class="matChipList">
+          <mat-chip *ngFor="let option of multiSelect.value, let i=index" selected="true"  color="primary" [selectable]="true"
+          [removable]="true" (removed)="remove(i)">{{option}}
+          <mat-icon matChipRemove >cancel</mat-icon></mat-chip>
+        </mat-chip-list>
+      </mat-card-content>
+    </mat-card>
+  </mde-popover>
+</mat-form-field>
