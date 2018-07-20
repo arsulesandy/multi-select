@@ -1,36 +1,55 @@
 <mat-form-field class="matSelect">
-  <mat-select [placeholder]="placeHolder" [formControl]="multiSelect" multiple>
-    <mat-select-trigger>
-      <div class="trigger">
-        <mat-chip-list class="matChipList">
-          <mat-chip selected="true"  color="primary" [selectable]="true"
-          [removable]="true" (removed)="remove(0)">{{multiSelect.value ? multiSelect.value[0] : ''}}
-          <mat-icon matChipRemove >cancel</mat-icon></mat-chip>
-        </mat-chip-list>
-        
-        <span *ngIf="multiSelect.value?.length > 1" class="countChip">
-            <mat-chip
-            mdePopoverTriggerOn="click">+{{multiSelect.value.length - 1}}</mat-chip>
-        </span>
+  <mat-select [placeholder]="data.placeHolder" [formControl]="multiSelect" multiple>
+
+
+    <!-- Mat Select Area -->
+      <mat-select-trigger>
+          <div class="trigger">
+              <mat-chip-list class="matChipList">
+                  <mat-chip selected="true" color="primary" [selectable]="true" [removable]="true" (removed)="optionClick(selectedOptions[0])">{{selectedOptions[0]?.value}}
+                      <mat-icon matChipRemove>cancel</mat-icon>
+                  </mat-chip>
+              </mat-chip-list>
+
+              <span *ngIf="selectedOptions?.length > 1" class="countChip">
+          <mat-chip [mdePopoverTriggerFor]="appPopover"
+          mdePopoverTriggerOn="click">+{{selectedOptions.length - 1}}</mat-chip>
+      </span>
+          </div>
+      </mat-select-trigger>
+
+
+      <!-- Search Input -->
+      <mat-form-field *ngIf="data.enableSearch" class="matSearch">
+          <input [(ngModel)]='matSearch' matInput placeholder="Search">
+      </mat-form-field>
+
+
+      <!-- Select All and Clear All -->
+      <div class="selectclear" *ngIf="data.enableSelectClear">
+        <mat-checkbox #matChekbox [indeterminate]="indeterminate" (change)="changeState(matChekbox.checked)">Select All</mat-checkbox>
+        <mat-chip selected="true"  [selectable]="true" [removable]="true" (click)="changeState(false)">
+          Clear All<mat-icon matChipRemove>cancel</mat-icon>
+       </mat-chip>
       </div>
-    </mat-select-trigger>
-    <mat-form-field class="matSearch">
-          <input #matSearch matInput placeholder="Search">
-    </mat-form-field>
-        
-    <mat-option *ngFor="let option of options | filter:matSearch.value" (click)="emitValue()" [value]="option">{{option}}</mat-option>
+      <mat-divider *ngIf="data.enableSelectClear"></mat-divider>
+
+
+      <!-- All options belongs ti primalOptions -->
+      <mat-option *ngFor="let option of primalOptions | filter:matSearch, let i=index" (click)="optionClick(option)" [value]="option">{{option.value}}</mat-option>
   </mat-select>
 
-  
+
+  <!-- POP-UP for selected options -->
   <mde-popover #appPopover="mdePopover" [mdePopoverOverlapTrigger]="false">
-    <mat-card style="max-width: 300px">
-      <mat-card-content>
-        <mat-chip-list class="matChipList">
-          <mat-chip *ngFor="let option of multiSelect.value, let i=index" selected="true"  color="primary" [selectable]="true"
-          [removable]="true" (removed)="remove(i)">{{option}}
-          <mat-icon matChipRemove >cancel</mat-icon></mat-chip>
-        </mat-chip-list>
-      </mat-card-content>
-    </mat-card>
+      <mat-card style="max-width: 300px">
+          <mat-card-content>
+              <mat-chip-list class="matChipList">
+                  <mat-chip *ngFor="let option of selectedOptions, let i=index" selected="true" color="primary" [selectable]="true" [removable]="true" (removed)="optionClick(option)">{{option.value}}
+                      <mat-icon matChipRemove>cancel</mat-icon>
+                  </mat-chip>
+              </mat-chip-list>
+          </mat-card-content>
+      </mat-card>
   </mde-popover>
 </mat-form-field>
