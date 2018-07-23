@@ -1,6 +1,24 @@
 {
-  "name": "multiselect",
-  "version": "0.0.1",
+  "name": "mat-multiselect",
+  "version": "0.0.6",
+  "description": "mat-multiselect is a simple multiselect select with filter,select all and clear all functionalities .",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arsulesandy/multi-select.git"
+  },
+  "keywords": [
+    "angular 6",
+    "dropdown",
+    "mat multiselect",
+    "angular material",
+    "multi select",
+    "Angular library"
+  ],
+  "author": "Sandeep Arsule",
+  "contributors": [
+    "Sandeep Arsule <arsulesandy@gmail.com>"
+  ],
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0",

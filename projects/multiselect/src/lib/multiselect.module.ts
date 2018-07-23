@@ -28,4 +28,7 @@ import { MultiselectComponent } from './multiselect.component';
   declarations: [MultiselectComponent, FilterPipe],
   exports: [MultiselectComponent]
 })
+/**
+ * Multi Select Module
+ */
 export class MultiselectModule { }
