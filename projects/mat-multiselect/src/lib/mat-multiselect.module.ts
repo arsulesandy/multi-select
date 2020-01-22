@@ -2,13 +2,13 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {
-    MatCardModule, MatCheckboxModule, MatChipsModule, MatDividerModule, MatIconModule,
-    MatInputModule, MatSelectModule, MatToolbarModule
+  MatCardModule, MatCheckboxModule, MatChipsModule, MatDividerModule, MatIconModule,
+  MatInputModule, MatSelectModule, MatToolbarModule
 } from '@angular/material';
 import { MdePopoverModule } from '@material-extended/mde';
 
 import { FilterPipe } from './filter-pipe/filter.pipe';
-import { MultiselectComponent } from './multiselect.component';
+import { MatMultiselectComponent } from './mat-multiselect.component';
 
 @NgModule({
   imports: [
@@ -25,10 +25,10 @@ import { MultiselectComponent } from './multiselect.component';
     CommonModule,
     FormsModule
   ],
-  declarations: [MultiselectComponent, FilterPipe],
-  exports: [MultiselectComponent]
+  declarations: [MatMultiselectComponent, FilterPipe],
+  exports: [MatMultiselectComponent]
 })
 /**
  * Multi Select Module
  */
-export class MultiselectModule { }
+export class MatMultiselectModule { }

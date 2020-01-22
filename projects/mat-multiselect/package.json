@@ -1,0 +1,36 @@
+{
+  "name": "mat-multiselect",
+  "version": "1.0.4",
+  "description": "mat-multiselect is a simple multiselect select with filter,select all and clear all functionalities.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arsulesandy/multi-select.git"
+  },
+  "keywords": [
+    "angular 8",
+    "dropdown",
+    "mat multiselect",
+    "angular material",
+    "multi select",
+    "Angular library"
+  ],
+  "author": "Sandeep Arsule",
+  "contributors": [
+    "Sandeep Arsule <arsulesandy@gmail.com>"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "^8.2.14",
+    "@angular/core": "^8.2.14",
+    "@angular/cdk": "^8.2.3",
+    "@angular/compiler": "^8.2.14",
+    "@angular/forms": "^8.2.14",
+    "@angular/material": "^8.2.3",
+    "@angular/platform-browser": "^8.2.14",
+    "@angular/platform-browser-dynamic": "^8.2.14",
+    "@material-extended/mde": "^2.3.1",
+    "core-js": "^2.5.4",
+    "rxjs": "^6.0.0",
+    "zone.js": "~0.9.1"
+  }
+}

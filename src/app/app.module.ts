@@ -1,8 +1,9 @@
+import { FilterPipe } from './../../projects/mat-multiselect/src/lib/filter-pipe/filter.pipe';
+import { MatMultiselectModule } from './../../projects/mat-multiselect/src/lib/mat-multiselect.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { MultiselectModule } from 'multiselect';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MdePopoverModule } from '@material-extended/mde';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,12 +15,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MultiselectModule,
+    MatMultiselectModule,
     ReactiveFormsModule,
     MdePopoverModule
 
   ],
-  providers: [],
+  providers: [FilterPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

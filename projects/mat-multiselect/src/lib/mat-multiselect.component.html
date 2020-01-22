@@ -32,8 +32,8 @@
         </div>
         <mat-divider *ngIf="data.enableSelectClear"></mat-divider>
 
-        <!-- All options belongs ti primalOptions -->
-        <mat-option *ngFor="let option of primalOptions | filter:matSearch, let i=index" (click)="optionClick(option)" [value]="option">{{option.value}}</mat-option>
+        <!-- All options belongs ti options -->
+        <mat-option *ngFor="let option of options | filter:matSearch, let i=index" (click)="optionClick(option)" [value]="option">{{option.value}}</mat-option>
     </mat-select>
 
     <!-- POP-UP for selected options -->

@@ -2,13 +2,16 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "downlevelIteration": true,
+    "importHelpers": true,
+    "module": "esnext",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es5",
+    "target": "es2015",
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -18,10 +21,10 @@
     ],
     "paths": {
       "multiselect": [
-        "dist/multiselect"
+        "dist/mat-multiselect"
       ],
       "multiselect/*": [
-        "dist/multiselect/*"
+        "dist/mat-multiselect/*"
       ]
     }
   }
